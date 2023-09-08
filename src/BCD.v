@@ -3,6 +3,7 @@ module BCD(
 	output reg [6:0] out_B
 );
 
+	
 always@(*)
 begin
 	case (in_A)
