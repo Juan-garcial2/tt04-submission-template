@@ -1,36 +1,23 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg)
 
-# What is Tiny Tapeout?
+# Frequency meter
 
-TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip!
+This project is a frequency meter up to 10Khz.
 
-Go to https://tinytapeout.com for instructions!
 
-## How to change the Wokwi project
+## GPIO Pins.
 
-Edit the [info.yaml](info.yaml) and change the wokwi_id to match your project.
+The input and output pins play crucial roles in the functionality of the clock, contributing to its operation and configuration. Below is the function assignment for each of the pins:
 
-## How to enable the GitHub actions to build the ASIC files
+Input Pins: 
 
-Please see the instructions for:
+- data_in: 12-bit vector coming from an ADC.
+- 
+Output Pins: 
 
-- [Enabling GitHub Actions](https://tinytapeout.com/faq/#when-i-commit-my-change-the-gds-action-isnt-running)
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+- segments: The "segments" pin controls the activation of individual segments in the 7-segment displays. By manipulating this pin, the necessary segments are turned on or off to form digits and characters on the displays.
+- display_select [1:0]: These output pins determine which display should be activated at a given moment in the multiplexed configuration. Different values of these pins will select the specific digit to be displayed at that instant.
+- segment_select [2:0]: These pins control the selection of segments within the active display. By changing the values of these pins, specific segments are activated or deactivated, allowing for the display of different numbers and characters on the clock.
 
-## How does it work?
+ 
 
-When you edit the info.yaml to choose a different ID, the [GitHub Action](.github/workflows/gds.yaml) will fetch the digital netlist of your design from Wokwi.
-
-After that, the action uses the open source ASIC tool called [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/) to build the files needed to fabricate an ASIC.
-
-## Resources
-
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://discord.gg/rPK2nSjxy8)
-
-## What next?
-
-- Submit your design to the next shuttle [on the website](https://tinytapeout.com/#submit-your-design), the closing date is 8th September.
-- Share your GDS on Twitter, tag it [#tinytapeout](https://twitter.com/hashtag/tinytapeout?src=hashtag_click) and [link me](https://twitter.com/matthewvenn)!
